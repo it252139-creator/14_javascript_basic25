@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>変数・演算子・要素の取得・イベント処理振り返り</title>
+</head>
+
+<body>
+    <h1>変数・演算子・要素の取得・イベント処理振り返り</h1>
+    <p id="result"></p>
+    <button id="hello">あいさつ</button>
+    <p id="msg"></p>
+    <button id="hidden">削除する</button>
+
+    <script>
+        //ここに記述していきます。
+        //1
+        let count = 10;
+        console.log(count);
+
+        //2
+        let counter = document.querySelector('p#result');
+        console.log(result);
+        counter.textContent = count;
+
+        //3
+        count--;
+        console.log(count);
+        counter.textContent = count;
+
+        //4
+        const helloBtn = document.querySelector('#hello');
+        console.log(helloBtn);
+        helloBtn.addEventListener('click', function () {
+            console.log('こんにちは');
+        })
+
+        const hiddenBtn = document.querySelector('#hidden');
+        hiddenBtn.addEventListener('click', function () {
+            let result = document.querySelector('#result');
+            result.textContent = '';
+        })
+    </script>
+</body>
+
+</html>

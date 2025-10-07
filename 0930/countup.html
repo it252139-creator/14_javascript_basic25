@@ -20,6 +20,7 @@
         //CSSセレクターは、CSSで使うセレクターのこと
         console.log(counter);//pが入っている
         //p要素のテキストをcountに代入
+        //プロパティ
         counter.textContent = count;
 
         //素材は全部取り込む
@@ -27,10 +28,20 @@
         const pulsBtn = document.querySelector("#puls");
         console.log(pulsBtn);
 
+        //クリックイベントを登録
+        pulsBtn.addEventListener('click', function () {
+            console.log("クリックしたぞ！");
+            //count = count + 1;
+            //インクリメント
+            count++;
+            console.log(count);
+            counter.textContent = count;
+        });
+
 
 
         let a; //変数の宣言
-        console.log(a); //undefined値がない
+        console.log(a); //undefined＝値がない
         a = 10; //変数aに値(10)を代入
         console.log(a); //10
         let b = 20;
@@ -38,7 +49,9 @@
         console.log(b);
         b = 30;
         console.log(b); //30
+        //間違えやすいところではクォーテーションを入れない
         console.log("b"); //クォテーションは、文字列
+        //再宣言は NO
         // let b = 40; 同じ変数名では、宣言ができない
     </script>
 </body>
