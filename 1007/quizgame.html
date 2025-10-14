@@ -83,6 +83,7 @@
 
     //問題の配列から問題を取得したい
     let index = 0;
+    let score = 0; //最初は0
     //indexは0、配列questionsの添字に当てはめる。
     //問題表示部分に配列から1問目が表示される。
     questionElem.textContent = questions[index];
@@ -96,12 +97,19 @@
         //inputから数値を取得すると、すべて文字列になる。
         if (answer === answers[index]) {
             resultMessage.textContent = '正解です';
+            score++;//正解するたびに
         } else {
             resultMessage.textContent = '不正解です';
         }
         index++; //0→1
         questionElem.textContent = questions[index];
         answerInput.value = ''; //初期化
+
+        if (index === questions.length) {
+            questionElem.textContent = '3問中' + score + '問正解です';
+            console.log(score);//正解数を表示
+        }
+
         console.log(answer);
     });
 
@@ -110,6 +118,34 @@
 </script>
 
 <script>
+    //文字列の連結練習
+    //文字列と数値型の連結
+    console.log('円周率は、' + 3.14 + 'です。');
+    //円周率は、3.14です。
+
+    //文字列と数値の計算
+    console.log('計算結果:' + 1234 + 5678);
+    //計算結果:12345678 文字列が入った時点(最初)文字列結合になる
+
+    //数値の計算と文字列
+    console.log(123 + 456 + 'です。');
+    //579です。文字列が入った時点（最後）で文字列結合になります
+
+    //文字列と(計算)だったら
+    console.log('計算結果:' + (123 + 456));
+    //計算結果:579)
+
+    //文字列　-　数値だったら
+    console.log('2' - 1);
+    //1
+    console.log('2' * 1);
+    //2
+    console.log('4' / 2);
+    //2
+</script>
+
+<script>
+    //配列の練習
     const interests = ['読書', '料理', 'キャンプ'];
     console.log(interests);
     console.log(interests[0]); //読書
