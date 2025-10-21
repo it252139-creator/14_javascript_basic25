@@ -57,6 +57,23 @@
                     }
                 }
             }
+
+            .gallery img.active {
+                display: inline;
+            }
+
+            .gallery img.hidden {
+                display: none;
+            }
+
+            img {
+                opacity: 0;
+            }
+
+            img.show {
+                opacity: 1;
+                transition: opacity 0.2s ease-in-out 400ms;
+            }
         </style>
     </head>
 
@@ -76,11 +93,60 @@
             <img src="./images/js_images-005.png" alt="食べ物1" class="food" />
         </div>
         <script>
+            // ① buttonと画像の要素を全て取得
             //マッチする要素を全部取るquerySelectorAll();
             const buttons = document.querySelectorAll('button');
             const images = document.querySelectorAll('img');
-            console.log(buttons);
-            console.log(images);
+            //console.log(buttons);
+            //console.log(images);
+
+            // ② buttonsの各要素にイベント（ボタンをクリック）を設定
+            for (let i = 0; i < buttons.length; i++) {
+                //iは、0〜3になる
+                buttons[i].addEventListener('click', function () {
+                    //nameプロパティを持っているので、.nameでつなげる
+                    //console.log(buttons[i].name);
+                    // ③ for文で画像ファイルのclassを取得
+                    //画像を取得
+                    // ⑤ classListオブジェクトでclassを操作
+                    // ⑥ allの場合の判定を追加
+                    for (let j = 0; j < images.length; j++) {
+                        if (buttons[i].name === "all") {
+                            images[j].classList.remove('hidden');
+                            images[j].classList.add('active');
+                        } else if (images[j].classList.contains(buttons[i].name)) {
+                            images[j].classList.add('active');
+                            images[j].classList.remove('hidden');
+                        } else {
+                            images[j].classList.remove('active');
+                            images[j].classList.add('hidden');
+                        }
+                    }
+                });
+            }
+
+            //読み込まれたら(イベントload)
+            //画像や文章が読みこまれたら発動するイベント
+            window.addEventListener('load', function () {
+                for (let i = 0; i < images.length; i++) {
+                    setTimeout(function () {
+                        images[i].classList.add('show');
+                    }, (i + 1) * 500);
+                }
+            });
+
+            /*buttons[0].addEventListener('click', function () {
+                console.log('all');
+            });
+            buttons[1].addEventListener('click', function () {
+                console.log('animal');
+            });
+            buttons[2].addEventListener('click', function () {
+                console.log('scenery');
+            });
+            buttons[3].addEventListener('click', function () {
+                console.log('food');
+            });*/
         </script>
     </body>
 
