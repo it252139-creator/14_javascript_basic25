@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引数のある関数の練習</title>
+</head>
+
+<body>
+    <script>
+        //関数名を定義(仮引数neme)
+        //コンソールに文字を表示する
+        function hello(name) {
+            //テンプレートリテラル(ES2015〜)
+            console.log(`こんにちは、$(name)さん`);
+            //今までの書き方(文字列の連結)
+            console.log('こんにちは' + name + 'さん');
+        }
+
+
+        //関数の定義と関数の実行セット
+        //関数()
+        hello('Alice');
+        hello('Bob');
+    </script>
+</body>
+
+</html>

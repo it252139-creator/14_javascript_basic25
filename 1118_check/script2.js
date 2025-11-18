@@ -1,0 +1,1 @@
+const btn = dosument.querySelectorall('menu');
