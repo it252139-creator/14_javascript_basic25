@@ -20,5 +20,3 @@ document.addEventListener('click', function () {
     text.style.fontWeight = 'bold';
 
 });
-
-const btn = dosument.querySelectorall('menu');
